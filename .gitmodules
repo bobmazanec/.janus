@@ -1,3 +1,6 @@
 [submodule "vim-rspec"]
 	path = vim-rspec
 	url = https://github.com/thoughtbot/vim-rspec
+[submodule "tabular"]
+	path = tabular
+	url = git://github.com/godlygeek/tabular.git
