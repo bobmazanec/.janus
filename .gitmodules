@@ -4,3 +4,9 @@
 [submodule "tabular"]
 	path = tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "vim-bundler"]
+	path = vim-bundler
+	url = https://github.com/tpope/vim-bundler
+[submodule "vim-rvm"]
+	path = vim-rvm
+	url = git://github.com/tpope/vim-rvm.git
