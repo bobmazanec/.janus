@@ -1,0 +1,75 @@
+color vividchalk
+set background=dark
+set guifont=Monaco:h12
+" let g:NERDTreeWinPos = "right"
+set guioptions-=T " Removes top toolbar
+set guioptions-=r " Removes right hand scroll bar
+set go-=L " Removes left hand scroll bar
+autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
+:set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
+
+"Janus/Fugitive extensions
+nnoremap <Leader>gsl :Git stash list<CR>
+nnoremap <Leader>gsp :Git stash pop<CR>
+
+let g:syntastic_ruby_checkers            = ['mri', 'rubocop']
+let g:syntastic_aggregate_errors         = 1 " aggregate all checkers' output
+let g:syntastic_always_populate_loc_list = 1 " so :lnext & :lprev work
+
+
+
+" plain annotations
+map <silent> <F10> !xmpfilter -a<cr>
+nmap <silent> <F10> V<F10>
+imap <silent> <F10> <ESC><F10>a
+
+" Test::Unit assertions; use -s to generate RSpec expectations instead
+map <silent> <S-F10> !xmpfilter -u<cr>
+nmap <silent> <S-F10> V<S-F10>
+imap <silent> <S-F10> <ESC><S-F10>a
+
+" Annotate the full buffer
+" I actually prefer ggVG to %; it's a sort of poor man's visual bell 
+nmap <silent> <F11> mzggVG!xmpfilter -a<cr>'z
+imap <silent> <F11> <ESC><F11>
+
+" assertions
+nmap <silent> <S-F11> mzggVG!xmpfilter -u<cr>'z
+imap <silent> <S-F11> <ESC><S-F11>a
+
+" Add # => markers
+vmap <silent> <F12> !xmpfilter -m<cr>
+nmap <silent> <F12> V<F12>
+imap <silent> <F12> <ESC><F12>a
+
+" Remove # => markers
+vmap <silent> <S-F12> ms:call RemoveRubyEval()<CR>
+nmap <silent> <S-F12> V<S-F12>
+imap <silent> <S-F12> <ESC><S-F12>a
+
+" Use :Rrunner instead of vim-vroom
+nmap <leader>r :Rrunner<CR>
+nmap <leader>R :.Rrunner<CR>
+
+function! RemoveRubyEval() range
+  let begv = a:firstline
+  let endv = a:lastline
+  normal Hmt
+  set lz
+  execute ":" . begv . "," . endv . 's/\s*# \(=>\|!!\).*$//e'
+  normal 'tzt`s
+  set nolz
+  redraw
+endfunction
+
+set diffopt=vertical
+
+autocmd BufNewFile,BufRead \*.{md,mdwn,mkd,mkdn,mark\*} set filetype=markdown
+
+autocmd Filetype php setlocal ts=4 sw=4 noexpandtab
+
+" use ';' to prefix command line mode rather than ':' (and its shift)
+map ; :
+
+" double ';' to get its original behavior
+noremap ;; ;
