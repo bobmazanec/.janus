@@ -73,3 +73,6 @@ map ; :
 
 " double ';' to get its original behavior
 noremap ;; ;
+
+set statusline=%{fugitive#statusline()}\ %f\ %rLine:%l/%L[%p%%]Col:%vBuf:#%n[%b][0x%B]
+
