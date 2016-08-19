@@ -10,3 +10,6 @@
 [submodule "vim-rvm"]
 	path = vim-rvm
 	url = git://github.com/tpope/vim-rvm.git
+[submodule "vim-i18n"]
+	path = vim-i18n
+	url = git://github.com/stefanoverna/vim-i18n.git

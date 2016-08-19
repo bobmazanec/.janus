@@ -74,5 +74,10 @@ map ; :
 " double ';' to get its original behavior
 noremap ;; ;
 
+" vim-i18n commands
+" cf https://github.com/stefanoverna/vim-i18n#vim-mapping
+vmap <Leader>z :call I18nTranslateString()<CR>
+vmap <Leader>dt :call I18nDisplayTranslation()<CR>
+
 set statusline=%{fugitive#statusline()}\ %f\ %rLine:%l/%L[%p%%]Col:%vBuf:#%n[%b][0x%B]
 
