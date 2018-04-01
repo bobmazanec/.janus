@@ -97,3 +97,5 @@ augroup END
 
 set statusline=%{fugitive#statusline()}\ %f\ %rLine:%l/%L[%p%%]Col:%vBuf:#%n[%b][0x%B]
 
+" So that file writes trigger actions in Docker containers
+set backupcopy=yes
