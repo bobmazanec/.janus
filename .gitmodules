@@ -13,3 +13,6 @@
 [submodule "vim-i18n"]
 	path = vim-i18n
 	url = git://github.com/stefanoverna/vim-i18n.git
+[submodule "vim-seeing-is-believing"]
+	path = vim-seeing-is-believing
+	url = https://github.com/hwartig/vim-seeing-is-believing
