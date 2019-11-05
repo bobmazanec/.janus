@@ -99,3 +99,6 @@ set statusline=%{fugitive#statusline()}\ %f\ %rLine:%l/%L[%p%%]Col:%vBuf:#%n[%b]
 
 " So that file writes trigger actions in Docker containers
 set backupcopy=yes
+
+" Make current line really visible & obvious
+set cursorline
